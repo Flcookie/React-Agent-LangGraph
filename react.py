@@ -5,15 +5,16 @@ from langchain_tavily import TavilySearch
 
 load_dotenv(override=True)
 
+
 @tool
-def triple(num:float) -> float:
+def triple(num: float) -> float:
     """
     param num: a number to tripe
     returns: the triple of the input number
     """
     return float(num) * 3
 
+
 tools = [TavilySearch(max_results=1), triple]
 
-llm =  ChatOpenAI(model="gpt-4o-mini", temperature=0).bind_tools(tools)
-
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0).bind_tools(tools)
